@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         
-        $products=Product::paginate(3);
+        $products=Product::orderBy('created_at', 'desc')->simplepaginate(3);
         //dd('products');
         return view('product.index', compact('products'));
         
